@@ -1,0 +1,95 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+{% for msg in messages %}
+  <font style="color: burlywood;"><h4>{{msg}}</h4></font>
+  {% endfor %}
+<div style="background:url(/static/images/bg.jpg);background-repeat: no-repeat;height: 40em;background-size: 100em 50em;">
+  <div style="padding-top: 6em;padding-left: 2em;">
+
+
+    {% if user.is_superuser %}
+
+    <a href="{% url 'add_announcement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD ANNOUNCEMENT</button></a>
+    <a href="{% url 'add_placement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD PLACEMENT</button></a>
+    <a href="{% url 'view_placement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">VIEW PLACEMENT</button></a>
+    <a href="{% url 'add_rating' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD RATING</button></a>
+
+    <a href="{% url 'indexpage' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">COMPILER</button></a>
+
+    {% endif %}
+
+
+  {% if user.register.user_type == 'student' %}
+
+
+<a href="https://www.jdoodle.com/"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">Online Compiler</button></a>
+<a href="{% url 'student_view_lesson' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">View Lessons</button></a>
+<a href="{% url 'view_lab_cycle' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">View LAB CYCLE</button></a>
+<a href="{% url 'chat' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">Chat</button></a>
+<a href="{% url 'update_profile' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">Edit Profile</button></a>
+<a href="{% url 'view_placement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">VIEW PLACEMENT</button></a>
+
+<a href="{% url 'add_complaints' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD COMPLAINT</button></a>
+<a href="{% url 'view_complaints' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">VIEW MY COMPLAINT</button></a>
+<a href="{% url 'view_suggestions' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">VIEW SUGGESTIONS</button></a>
+
+<a href="{% url 'add_rating' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">ADD RATING</button></a>
+
+<a href="{% url 'indexpage' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">PYTHON COMPILER</button></a>
+<a href="{% url 'view_programs' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">VIEW MY PROGRAMS</button></a>
+
+<a href="{% url 'blogs' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">VIEW CHATS</button></a>
+
+
+{% endif %}
+
+{% if user.register.user_type == 'teacher' %}
+
+<a href="https://www.jdoodle.com/"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">Online Compiler</button></a>
+<a href="{% url 'view_programs' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">View Submitted Programs</button></a>
+<a href="{% url 'upload_study_material' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">Upload Study Materials</button></a>
+<a href="{% url 'view_lessons' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">View Lessons</button></a>
+<a href="{% url 'update_profile' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">Edit Profile</button></a>
+
+
+<a href="{% url 'upload_lab_cycle' %}"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">View Experiments</button></a>
+<a href="{% url 'view_placement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">VIEW PLACEMENT</button></a>
+<a href="{% url 'add_suggestion' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD SUGGESTION</button></a>
+<a href="{% url 'view_suggestions' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">VIEW MY SUGGESTIONS</button></a>
+<a href="{% url 'view_complaints' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">VIEW COMPLAINTS</button></a>
+
+<a href="{% url 'add_rating' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD RATING</button></a>
+
+
+<a href="{% url 'indexpage' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">PYTHON COMPILER</button></a>
+
+<a href="{% url 'blogs' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">VIEW CHATS</button></a>
+
+
+
+
+
+{% endif %}
+
+
+
+{% if user.Public %}
+
+
+  
+
+    <a href="https://www.jdoodle.com/"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">Online Compiler</button></a>
+    <a href="{% url 'indexpage' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">PYTHON COMPILER</button></a>
+
+    
+    
+
+
+
+{% endif %}
+</div>
+</div>
+
+{% endblock %}

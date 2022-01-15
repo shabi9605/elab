@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+{% block title %}login{% endblock %}
+
+
+{% block content %}
+<link href="/static/css/style1.css" rel="stylesheet" type="text/css" media="all" />
+<!-- css files -->
+
+<!-- Online-fonts -->
+<link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+
+<div class="main">
+    <div class="main-w3l">
+        
+        <div class="w3layouts-main">
+            <h2><span>Login now</span></h2>
+                <form action="#" method="POST"  style="color: cornsilk;text-emphasis-color: white;">
+                    {% csrf_token %}
+                    
+                    <label>Username</label>
+    <input type="text" name="username" required placeholder="username"><br>
+    <label>Password</label>
+    <input type="password" name="password" required placeholder="password">
+    <br>
+    <input type="submit" value="LOGIN" style="background-color: blanchedalmond;"> 
+                </form>
+        </div>
+
+
+{% if msg %}
+<font color="green">{{msg}}</font>
+{% endif %}
+</div>
+{% endblock %}
+
+<!--
+    <form action="" method="POST">
+    {% csrf_token %}
+    <label>Username</label>
+    <input type="text" name="username" required placeholder="username"><br>
+    <label>Password</label>
+    <input type="password" name="password" required placeholder="password">
+    <br>
+    <input type="submit" value="LOGIN"> 
+
+
+</form>
+-->

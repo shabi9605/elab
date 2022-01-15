@@ -1,0 +1,33 @@
+{% extends 'dashboard1.html' %}{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div style="background-color: #d8e079;padding-left: 2rem;padding-top: 2rem;padding-bottom: 2rem;">
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form|crispy}}
+    
+
+    <input class="btn btn-success btn-lg btn-block" type="submit" value="Create" style="margin-top: 2em;margin-left: 3em;margin-right: 3em;background-color: #5492cc;">
+</form>
+</div>
+
+{% endblock %}
+
+<!--
+    <div style="margin-top: 1em;">
+    Course:<input type="text" value="{{user.register.course.course_name}}" name="course" ><br></div>
+    <div style="margin-top: 1em;">
+    Subject:
+    <select name="subject" >{% for i in courses %}<option value="{{i.name}}" name='{{i.name}}'>{{i.name}}</option>{% endfor %}</select><br></div>
+    <div style="margin-top: 1em;">
+    Lesson name: <input type="text" name="lname"><br></div>
+    <div style="margin-top: 1em;">
+    Lesson Number: <input type="text" name="lnumber"><br></div>
+    <div style="margin-top: 1em;">
+    Video: <input type="file" name="video"><br></div>
+    <div style="margin-top: 1em;">
+    Presntation: <input type="file" name="ppt" ><br></div>
+    <div style="margin-top: 1em;">
+    Notes: <input type="file" name="notes"><br></div>
+-->

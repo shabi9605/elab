@@ -1,0 +1,110 @@
+{% extends 'dashboard2.html' %}
+
+<link rel="stylesheet" href= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+      
+    <script src= 
+"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+    </script> 
+      
+    <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"> 
+    </script> 
+      
+    <script src= 
+"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> 
+    </script> 
+      
+    <style>
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            padding-top:10px;
+        }
+        h1 {
+            color: green;
+        }
+    </style>
+
+{% block content %}
+
+
+<div class="container" style="width: 100%;">
+  <div class="card-group" style="width: 100%;">
+
+      
+      <!--bootstrap card with 3 horizontal images-->
+      <div class="row" style="width: 100%;" >
+          {% for i in lesson %}
+          <div class="card col-md-4 col-lg-4 " style=" background-color: cornsilk; margin-top: 2em; width: 200px;">
+              
+
+              <div class="card-body">
+                  <h3 class="card-title">{{i.lesson_name}}</h3>
+
+                  {% if i.notes %}
+      <h6 class="card-subtitle mb-1 text-muted">Get Notes</h6>
+      <a href="{{i.notes.url}}" download>Download</a>
+      {% else %}
+      <p>No notes available</p>
+      {% endif %}
+      {% if i.video %}
+      <p class="card-text">Get Video</p>
+      <a href="{{i.video.url}}" download>Download</a>
+      {% else %}
+      <p>No Video available</p>
+      {% endif %}
+      {% if i.ppt %}
+      <p class="card-text">Get PPT</p>
+      <a href="{{i.ppt.url}}" class="card-link" download>Download</a>
+      {% else %}
+      <p>No PPT available</p>
+      {% endif %}
+                  
+              </div>
+          </div>
+          {% endfor %}
+          
+      </div>
+  </div>
+</div>
+
+{% for sub in subject %}
+<h1>{{sub.name}}</h1>
+{% endfor %}
+
+
+
+{% endblock %}
+
+<!--
+
+  {% for i in lesson %}
+
+{% endfor %}
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{i.lesson_name}}</h5>
+      
+      {% if i.notes %}
+      <h6 class="card-subtitle mb-1 text-muted">Get Notes</h6>
+      <a href="{{i.notes.url}}" download>Download</a>
+      {% else %}
+      <p>No notes available</p>
+      {% endif %}
+      {% if i.video %}
+      <p class="card-text">Get Video</p>
+      <a href="{{i.video.url}}" download>Download</a>
+      {% else %}
+      <p>No Video available</p>
+      {% endif %}
+      {% if i.ppt %}
+      <p class="card-text">Get PPT</p>
+      <a href="{{i.ppt.url}}" class="card-link" download>Download</a>
+      {% else %}
+      <p>No PPT available</p>
+      {% endif %}
+      
+    </div>
+  </div>
+-->

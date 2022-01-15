@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% if user.register.user_type == 'teacher' %}
+
+<div style="margin-top: 2em;background-color: #ede9e3;padding-top: 2rem;padding-bottom: 2rem;padding-left: 2rem;">
+
+    {% for i in my_suggestions %}
+
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header" style="font-size: 1.4em;color: black;font-weight: bold;">Teacher : {{i.user.username}}</div>
+        <div class="card-body text-primary">
+         
+          <p class="card-text" style="font-size: 1.2em;color: black;font-weight: bold;">Suggestion: {{i.suggestion}}</p>
+          <p class="card-text" style="font-size: 0.8em;">{{i.date}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+
+</div>
+
+{% else %}
+
+<div style="margin-top: 2em;background-color: #ede9e3;padding-top: 2rem;padding-bottom: 2rem;padding-left: 2rem;">
+
+    {% for i in suggestions %}
+
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header" style="font-size: 1.4em;color: black;font-weight: bold;">Teacher : {{i.user.username}}</div>
+        <div class="card-body text-primary">
+         
+          <p class="card-text" style="font-size: 1.2em;color: black;font-weight: bold;">Suggestion: {{i.suggestion}}</p>
+          <p class="card-text" style="font-size: 0.8em;">{{i.date}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+
+</div>
+{% endif %}
+
+{% endblock %}

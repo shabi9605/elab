@@ -1,0 +1,34 @@
+{% extends 'dashboard1.html' %}
+
+{% block content %}
+
+
+<div style="background:url(/static/images/bg.jpg);background-repeat: no-repeat;height: 24em;background-size: 100em 20em;">
+  <div style="padding-top: 6em;padding-left: 2em;">
+
+<div class="card" style="width: 18rem;">
+  
+    <div class="card-body">
+      
+
+      
+      
+      <a href="{% url 'allsubject'  %}"><h5 class="card-title">{{user.register.course.course_name}}</h5></a>
+      <p></p>
+      
+      
+      <a href="{% url 'allsubject'  %}" class="btn btn-primary">Get Subjects</a>
+    </div>
+    
+  </div>
+  
+      </div>
+      </div>
+      
+      
+      
+ 
+  
+  
+  
+{% endblock %}

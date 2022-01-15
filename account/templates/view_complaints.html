@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% if user.register.user_type == 'student' %}
+
+<div style="margin-top: 2em;background-color: #f3d9b3;padding-top: 2rem;padding-bottom: 2rem;padding-left: 2rem;">
+
+    {% for i in my_complaints %}
+
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header" style="font-size: 1.4em;color: black;font-weight: bold;">User : {{i.user.username}}</div>
+        <div class="card-body text-primary">
+         
+          <p class="card-text" style="font-size: 1.2em;color: black;font-weight: bold;">Complaint: {{i.complaint}}</p>
+          <p class="card-text" style="font-size: 0.8em;">{{i.date}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+
+</div>
+
+{% endif %}
+{% if user.register.user_type == 'teacher' %}
+
+<div style="margin-top: 2em;background-color: #f5d7a9;padding-top: 2rem;padding-bottom: 2rem;padding-left: 2rem;">
+
+    {% for i in complaint %}
+
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header" style="font-size: 1.4em;color: black;font-weight: bold;">Student : {{i.user.username}}</div>
+        <div class="card-body text-primary">
+         
+          <p class="card-text" style="font-size: 1.2em;color: black;font-weight: bold;">Complaint: {{i.complaint}}</p>
+          <p class="card-text" style="font-size: 0.8em;">{{i.date}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+
+</div>
+{% endif %}
+
+
+
+{% if user.public %}
+
+
+<div style="margin-top: 2em;background-color: #f0e3cf;padding-top: 2rem;padding-bottom: 2rem;padding-left: 2rem;">
+
+  {% for i in my_complaints %}
+
+  <div class="card border-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header" style="font-size: 1.4em;color: black;font-weight: bold;">Student : {{i.user.username}}</div>
+      <div class="card-body text-primary">
+       
+        <p class="card-text" style="font-size: 1.2em;color: black;font-weight: bold;">Complaint: {{i.complaint}}</p>
+        <p class="card-text" style="font-size: 0.8em;">{{i.date}}</p>
+      </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+
+{% endif %}
+
+
+{% endblock %}

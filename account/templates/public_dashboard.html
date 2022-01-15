@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+{% for msg in messages %}
+  <font style="color: burlywood;"><h4>{{msg}}</h4></font>
+  {% endfor %}
+<div style="background:url(/static/images/bg.jpg);background-repeat: no-repeat;height: 30em;background-size: 100em 50em;">
+  <div style="padding-top: 6em;padding-left: 2em;">
+
+
+    {% if user.is_superuser %}
+
+    <a href="{% url 'add_announcement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD ANNOUNCEMENT</button></a>
+    <a href="{% url 'add_placement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD PLACEMENT</button></a>
+    <a href="{% url 'view_placement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">VIEW PLACEMENT</button></a>
+    <a href="{% url 'add_rating' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD RATING</button></a>
+
+    <a href="{% url 'indexpage' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">COMPILER</button></a>
+
+    {% endif %}
+
+
+
+
+<a href="https://www.jdoodle.com/"><button style="background-color:rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">Online Compiler</button></a>
+
+<a href="{% url 'view_placement' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">VIEW PLACEMENT</button></a>
+
+<a href="{% url 'add_complaints' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">ADD COMPLAINT</button></a>
+<a href="{% url 'view_complaints' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;">VIEW MY COMPLAINT</button></a>
+
+
+<a href="{% url 'add_rating' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">ADD RATING</button></a>
+
+<a href="{% url 'indexpage' %}"><button style="background-color: rgb(145 49 49);color: white;height: 6em;width: 20em;font-size: 1em;margin-top: 1em;">PYTHON COMPILER</button></a>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+{% endblock %}
